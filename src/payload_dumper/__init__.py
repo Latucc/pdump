@@ -11,43 +11,43 @@ def main():
     parser = argparse.ArgumentParser(description="OTA payload dumper")
     parser.add_argument("payloadfile", help="payload file name")
     parser.add_argument(
-        "--out", default="output", help="output directory (default: 'output')"
+        "-out", default="output", help="output directory (default: 'output')"
     )
     parser.add_argument(
-        "--diff",
+        "-diff",
         action="store_true",
         help="extract differential OTA",
     )
     parser.add_argument(
-        "--old",
+        "-old",
         default="old",
         help="directory with original images for differential OTA (default: 'old')",
     )
     parser.add_argument(
-        "--partitions",
+        "-p",
         default="",
         help="comma separated list of partitions to extract (default: extract all)",
     )
     parser.add_argument(
-        "--workers",
+        "-workers",
         default=cpu_count(),
         type=int,
         help="number of workers (default: CPU count - %d)" % cpu_count(),
     )
     parser.add_argument(
-        "--list",
+        "-list",
         action="store_true",
         help="list partitions in the payload file",
     )
     parser.add_argument(
-        "--metadata",
+        "-metadata",
         action="store_true",
         help="extract and display metadata file from the payload",
     )
-    parser.add_argument("--header", action="append", nargs=2)
+    parser.add_argument("-header", action="append", nargs=2)
     args = parser.parse_args()
 
-    # Check for --out directory exists
+    # Check for -out directory exists
     if not os.path.exists(args.out):
         os.makedirs(args.out)
 
@@ -66,7 +66,7 @@ def main():
         args.out,
         diff=args.diff,
         old=args.old,
-        images=args.partitions,
+        images=args.p,
         workers=args.workers,
         list_partitions=args.list,
         extract_metadata=args.metadata,
