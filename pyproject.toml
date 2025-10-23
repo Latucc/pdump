@@ -1,14 +1,14 @@
 [tool.poetry]
-name = "payload_dumper"
+name = "pdump"
 version = "0.4.0"
 description = "Dump partitions from Android's payload.bin"
-authors = ["5ec1cff"]
+authors = ["Latucc"]
 readme = "README.md"
-repository = "https://github.com/5ec1cff/payload-dumper"
-homepage = "https://github.com/5ec1cff/payload-dumper"
+repository = "https://github.com/Latucc/pdump"
+homepage = "https://github.com/Latucc/pdump"
 
 [tool.poetry.scripts]
-payload_dumper = "payload_dumper:main"
+pdump = "pdump:main"
 
 [tool.poetry.dependencies]
 python = ">=3.9" # protobuf runtime requires this
@@ -28,7 +28,7 @@ atomic = true
 profile = "black"
 line_length = 89
 skip_gitignore = true
-known_first_party = ["payload_dumper"]
+known_first_party = ["pdump"]
 
 [build-system]
 requires = ["poetry-core"]
